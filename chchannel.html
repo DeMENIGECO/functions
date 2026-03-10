@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>ChCHANNEL</title>
+<style>
+body { font-family: Arial; padding: 20px; }
+input, textarea, button { display:block; margin:10px 0; width:100%; max-width:500px; }
+</style>
+</head>
+<body>
+
+<h1>ChCHANNEL - Crea un post</h1>
+
+<label>Nome del canale (tutto minuscolo):</label>
+<input type="text" id="channelName" placeholder="es. canaletest">
+
+<label>Autore:</label>
+<input type="text" id="author" placeholder="Il tuo nome">
+
+<label>Testo del post:</label>
+<textarea id="postText" rows="5" placeholder="Scrivi il tuo post..."></textarea>
+
+<label>Hashtag (separati da spazi):</label>
+<input type="text" id="hashtags" placeholder="#tag1 #tag2">
+
+<label>
+<input type="checkbox" id="embeddedActive"> Vuoi includere immagini?
+</label>
+
+<input type="file" id="embeddedFiles" multiple accept="image/*">
+
+<button id="generateBtn">Genera link del post</button>
+
+<div id="output" style="display:none; margin-top:20px;">
+    <h2>Link generato:</h2>
+    <a id="postLink" href="#" target="_blank"></a>
+</div>
+
+<script>
+// Funzione per convertire file in Base64
+function filesToBase64(files){
+    return Promise.all(Array.from(files).map(file => new Promise(resolve => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(btoa(reader.result)); // codifica binaria in Base64
+        reader.readAsBinaryString(file);
+    })));
+}
+
+// Genera link del post
+document.getElementById('generateBtn').addEventListener('click', async () => {
+    const channel = encodeURIComponent(document.getElementById('channelName').value.trim().toLowerCase());
+    const author = encodeURIComponent(document.getElementById('author').value.trim());
+    const text = encodeURIComponent(document.getElementById('postText').value.trim());
+    const hashtags = encodeURIComponent(document.getElementById('hashtags').value.trim());
+
+    const embeddedActive = document.getElementById('embeddedActive').checked;
+    let embeddedData = '';
+
+    if(embeddedActive && document.getElementById('embeddedFiles').files.length > 0){
+        const base64Files = await filesToBase64(document.getElementById('embeddedFiles').files);
+        // unisci tutti i file separati da virgola
+        embeddedData = encodeURIComponent(base64Files.join(','));
+    }
+
+    const postURL = `ChCHANNEL.datas/post.html?author=${author}&text=${text}&channel=${channel}&hashtags=${hashtags}&embedded_1_activated=${embeddedActive}&embedded_1=${embeddedData}`;
+
+    document.getElementById('postLink').href = postURL;
+    document.getElementById('postLink').innerText = postURL;
+    document.getElementById('output').style.display = 'block';
+});
+</script>
+
+</body>
+</html>
