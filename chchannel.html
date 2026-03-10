@@ -63,7 +63,7 @@ document.getElementById('generateBtn').addEventListener('click', async () => {
         embeddedData = encodeURIComponent(base64Files.join(','));
     }
 
-    const postURL = `ChCHANNEL.datas/post.html?author=${author}&text=${text}&channel=${channel}&hashtags=${hashtags}&embedded_1_activated=${embeddedActive}&embedded_1=${embeddedData}`;
+    const postURL = `ChCHANNEL.datas/post/?author=${author}&text=${text}&channel=${channel}&hashtags=${hashtags}&embedded_1_activated=${embeddedActive}&embedded_1=${embeddedData}`;
 
     document.getElementById('postLink').href = postURL;
     document.getElementById('postLink').innerText = postURL;
