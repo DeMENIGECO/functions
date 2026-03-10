@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>CodeShare</title>
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; }
+input, textarea, button { display: block; margin: 10px 0; width: 100%; max-width: 500px; }
+</style>
+</head>
+<body>
+
+<h1>CodeShare</h1>
+
+<div id="inputSection">
+    <label for="textInput">Scrivi il tuo testo:</label>
+    <textarea id="textInput" rows="5" placeholder="Inserisci qui il tuo testo..."></textarea>
+
+    <label for="nameInput">Il tuo nome:</label>
+    <input type="text" id="nameInput" placeholder="Inserisci il tuo nome">
+
+    <button id="generateBtn">Genera link</button>
+</div>
+
+<div id="outputSection" style="display:none;">
+    <h2>Link generato:</h2>
+    <a id="generatedLink" href="#" target="_blank"></a>
+    <p>Puoi copiare questo link e condividerlo.</p>
+    <button onclick="resetForm()">Nuovo testo</button>
+</div>
+
+<script>
+// Funzione per generare un codice casuale di 50 caratteri
+function generateCode(length = 50) {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for(let i=0; i<length; i++){
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+}
+
+document.getElementById('generateBtn').addEventListener('click', () => {
+    const text = document.getElementById('textInput').value.trim();
+    const author = document.getElementById('nameInput').value.trim();
+
+    if(!text || !author){
+        alert("Devi inserire sia il testo che il nome!");
+        return;
+    }
+
+    const code = generateCode(50);
+
+    // Creiamo l'URL con query string
+    const url = `${window.location.origin}${window.location.pathname}?author=${encodeURIComponent(author)}&textcode=${code}`;
+
+    // Salviamo il testo in sessionStorage usando il codice
+    sessionStorage.setItem(code, JSON.stringify({ author, text }));
+
+    // Mostriamo il link
+    document.getElementById('generatedLink').href = url;
+    document.getElementById('generatedLink').innerText = url;
+    document.getElementById('inputSection').style.display = 'none';
+    document.getElementById('outputSection').style.display = 'block';
+});
+
+// Funzione per resettare il form
+function resetForm(){
+    document.getElementById('textInput').value = '';
+    document.getElementById('nameInput').value = '';
+    document.getElementById('inputSection').style.display = 'block';
+    document.getElementById('outputSection').style.display = 'none';
+}
+
+// Controllo se siamo arrivati tramite URL con query
+window.addEventListener('load', () => {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('textcode');
+    if(code && sessionStorage.getItem(code)){
+        const data = JSON.parse(sessionStorage.getItem(code));
+        document.body.innerHTML = `<h1>Testo di ${data.author}</h1><p>${data.text}</p>`;
+    }
+});
+</script>
+
+</body>
+</html>
