@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Post ChCHANNEL</title>
+<style>
+body { font-family: Arial; padding: 20px; }
+img { max-width: 100%; margin: 10px 0; }
+</style>
+</head>
+<body>
+<div id="postContent"></div>
+
+<script>
+// Leggi dati dalla query string
+const params = new URLSearchParams(window.location.search);
+const author = params.get('author');
+const text = params.get('text');
+const channel = params.get('channel');
+const hashtags = params.get('hashtags');
+const embeddedActive = params.get('embedded_1_activated') === 'true';
+const embeddedData = params.get('embedded_1');
+
+let html = `<h1>Post di ${author}</h1>`;
+html += `<h3>Canale: ${channel}</h3>`;
+html += `<p>${decodeURIComponent(text)}</p>`;
+html += `<p>Hashtag: ${decodeURIComponent(hashtags)}</p>`;
+
+if(embeddedActive && embeddedData){
+    const files = decodeURIComponent(embeddedData).split(',');
+    files.forEach(b64 => {
+        html += `<img src="data:image/*;base64,${b64}">`;
+    });
+}
+
+document.getElementById('postContent').innerHTML = html;
+</script>
+
+</body>
+</html>
