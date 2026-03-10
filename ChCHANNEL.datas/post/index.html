@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Post ChCHANNEL</title>
+<title>ChCHANNEL Post</title>
 <style>
 body { font-family: Arial; padding: 20px; }
 img { max-width: 100%; margin: 10px 0; }
@@ -29,12 +29,11 @@ html += `<p>Hashtag: ${decodeURIComponent(hashtags)}</p>`;
 if(embeddedActive && embeddedData){
     const files = decodeURIComponent(embeddedData).split(',');
     files.forEach(b64 => {
-        html += `<img src="data:image/*;base64,${b64}">`;
+        if(b64) html += `<img src="data:image/*;base64,${b64}">`;
     });
 }
 
 document.getElementById('postContent').innerHTML = html;
 </script>
-
 </body>
 </html>
