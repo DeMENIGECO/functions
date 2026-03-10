@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>ChCHANNEL Home</title>
+<style>
+body { font-family: Arial; margin:0; padding:0; }
+header { background:#4CAF50; color:white; padding:15px; text-align:center; font-size:18px; }
+header a { color:white; text-decoration:none; margin-left:20px; }
+.container { padding:20px; }
+.post { border:1px solid #ccc; padding:10px; margin:10px 0; cursor:pointer; }
+button { padding:5px 10px; margin-left:10px; }
+</style>
+</head>
+<body>
+
+<header id="topBar" style="display:none;">
+  <span>A cosa pensi? <a href="ChChannel.datas/post/">Postalo!</a></span>
+  <span id="usernameDisplay"></span>
+  <button id="logoutBtn">Logout</button>
+</header>
+
+<div class="container" id="mainContainer">
+  <div id="loginSection">
+    <h2>Accedi con Username</h2>
+    <input type="text" id="loginInput" placeholder="Inserisci username">
+    <button id="loginBtn">Accedi</button>
+  </div>
+
+  <div id="postsSection" style="display:none;">
+    <h2>Ultimi post</h2>
+    <div class="post" onclick="window.location.href='https://demenigeco.github.io/functions/ChCHANNEL.datas/post/?author=ChCHANNEL%20Italia&text=Benvenuti%20in%20ChChannel&channel=chchannel_italia&hashtags=%23welcome%20%23chchannel%20%23benvenuto%20%23it&embedded_1_activated=false&embedded_1='">Post 1: Benvenut in ChChannel</div>
+    <div class="post" onclick="window.location.href='https://demenigeco.github.io/functions/ChCHANNEL.datas/post/?author=ChCHANNEL%20Italia&text=Cari%20saluti!&channel=chchannel_italia&hashtags=%23welcome%20%23chchannel%20%23benvenuto%20%23it&embedded_1_activated=false&embedded_1='">Post 2: Cari saluti</div>
+  </div>
+</div>
+
+<script>
+// Controlla se esiste query ?username=
+const params = new URLSearchParams(window.location.search);
+const username = params.get('username');
+
+const topBar = document.getElementById('topBar');
+const usernameDisplay = document.getElementById('usernameDisplay');
+const loginSection = document.getElementById('loginSection');
+const postsSection = document.getElementById('postsSection');
+
+if(username){
+    // Mostra barra e post
+    topBar.style.display = 'block';
+    usernameDisplay.innerText = username;
+    loginSection.style.display = 'none';
+    postsSection.style.display = 'block';
+}else{
+    // Mostra form login
+    topBar.style.display = 'none';
+    loginSection.style.display = 'block';
+    postsSection.style.display = 'none';
+}
+
+// Login clic
+document.getElementById('loginBtn').addEventListener('click', ()=>{
+    const inputName = document.getElementById('loginInput').value.trim();
+    if(inputName){
+        window.location.href = `homepage.html?username=${encodeURIComponent(inputName)}`;
+    }
+});
+
+// Logout clic
+document.getElementById('logoutBtn').addEventListener('click', ()=>{
+    window.location.href = `homepage.html`; // senza query
+});
+</script>
+
+</body>
+</html>
