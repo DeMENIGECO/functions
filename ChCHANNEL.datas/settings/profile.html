@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>ChCHANNEL Home</title>
+<title>Impostazioni</title>
 <style>
 body { font-family: Arial; margin:0; padding:0; }
 header { background:#4CAF50; color:white; padding:15px; text-align:center; font-size:18px; }
@@ -15,7 +15,7 @@ button { padding:5px 10px; margin-left:10px; }
 <body>
 
 <header id="topBar" style="display:none;">
-  <span>A cosa pensi? <a href="ChChannel.datas/post/">Postalo!</a></span>
+  <span>Ritorna <a href="../homepage.html">alla Home</a></span>
   <span id="usernameDisplay"></span>
   <button id="logoutBtn">Logout</button>
 </header>
@@ -28,9 +28,12 @@ button { padding:5px 10px; margin-left:10px; }
   </div>
 
   <div id="postsSection" style="display:none;">
-    <h2>Ultimi post</h2>
+    <h2>Sezioni</h2>
     <div class="post" onclick="window.location.href='profile.html'">Profilo</div>
     <div class="post" onclick="window.location.href='warn.html'">Warning zone</div>
+    <h2>Opzioni</h2>
+    <p>Rinomina utente</p>
+    <div class="post">Per rinominarlo, devi creare un'account collegato (in sviluppo)</div>
   </div>
 </div>
 
