@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Registrati - ChCHANNEL</title>
+<style>
+body {
+    font-family: Arial;
+    background: #0f172a;
+    color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #22c55e;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16a34a;
+}
+
+.error {
+    color: #ef4444;
+    font-size: 12px;
+}
+
+.link {
+    text-align: center;
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h1>Registrati (Account collegato)</h1>
+
+    <input type="text" id="Vusername" placeholder="Username dell'account da collegare (minuscolo)">
+    <input type="text" id="username"  placeholder="Username (minuscolo)">
+    <input type="password" id="password" placeholder="Password">
+    <input type="password" id="confirm" placeholder="Conferma Password">
+    <select id="type">
+       <option value="org">Organizzazione</option>
+       <option value="admin">Amministratore</option>
+       <option value="lavorator">Lavoratore</option>
+       <option value="baseusr">Utente base</option>
+  </select>
+
+    <div class="error" id="errorMsg"></div>
+
+    <button onclick="register()">Registrati</button>
+
+    <div class="link">
+        <a href="../../homepage.html" style="color:#38bdf8;">Hai già un account? Accedi</a>
+    </div>
+</div>
+
+<script>
+function register(){
+    const Vusername = document.getElementById('Vusername').value.trim();
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+    const confirm = document.getElementById('confirm').value;
+    const type = document.getElementById('type').value;
+    const error = document.getElementById('errorMsg');
+
+    error.innerText = '';
+
+    // Controlli base
+    if(!Vusername || !username || !password || !confirm){
+        error.innerText = "Compila tutti i campi!";
+        return;
+    }
+
+    if(username !== username.toLowerCase()){
+        error.innerText = "Username deve essere tutto minuscolo!";
+        return;
+    }
+
+    if(password.length < 4){
+        error.innerText = "Password troppo corta!";
+        return;
+    }
+
+    if(password !== confirm){
+        error.innerText = "Le password non coincidono!";
+        return;
+    }
+
+    // Redirect con query corretta
+    window.location.href = `../../homepage.html?username=${encodeURIComponent(username)}&accountcollegated=true&type=${encodeURIComponent(type)}&linkedto=${encodeURIComponent(Vusername)}`;
+}
+</script>
+
+</body>
+</html>
