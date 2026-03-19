@@ -25,6 +25,7 @@ button { padding:5px 10px; margin-left:10px; }
     <h2>Accedi con Username</h2>
     <input type="text" id="loginInput" placeholder="Inserisci username">
     <button id="loginBtn">Accedi</button>
+    <button id="regBtn">Registrati</button>
   </div>
 
   <div id="postsSection" style="display:none;">
@@ -62,6 +63,11 @@ document.getElementById('loginBtn').addEventListener('click', ()=>{
     const inputName = document.getElementById('loginInput').value.trim();
     if(inputName){
         window.location.href = `homepage.html?username=${encodeURIComponent(inputName)}`;
+    }
+});
+
+document.getElementById('regBtn').addEventListener('click', ()=>{
+        window.location.href = `auth/register/?flag_1=SJHS8747UURJD883IHD847`;
     }
 });
 
