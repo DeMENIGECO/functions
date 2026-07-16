@@ -1,41 +1,319 @@
-<title>NoirCat - Tutta la privacy che hai bisogno in un browser</title>
-<p>
-  <img src="19311-removebg-preview.png" widht="50" height="50" alt="NoirCat Logo">
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  NoirCat - <a href="index.html">Home</a> - <a href="download.html">Download</a> - <a href="privacy.html">Per la privacy</a>
+<title>NoirCat - Tutta la privacy di cui hai bisogno in un browser</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#0f0f0f;
+    color:white;
+}
+
+header{
+    background:#161616;
+    padding:15px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:relative;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    transition:.2s;
+}
+
+nav a:hover{
+    color:#4da3ff;
+}
+
+.hamburger{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+    user-select:none;
+}
+
+.hero{
+    max-width:1000px;
+    margin:auto;
+    padding:70px 20px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:52px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:20px;
+    color:#d0d0d0;
+}
+
+.button{
+    display:inline-block;
+    margin-top:35px;
+    padding:15px 35px;
+    background:#1976d2;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.button:hover{
+    background:#1565c0;
+}
+
+.section{
+    max-width:1000px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1a1a1a;
+    border-radius:15px;
+    padding:25px;
+}
+
+.card h3{
+    margin-top:0;
+}
+
+footer{
+    margin-top:60px;
+    padding:30px;
+    text-align:center;
+    background:#161616;
+    color:#aaaaaa;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+header{
+    flex-wrap:wrap;
+}
+
+.hamburger{
+    display:block;
+}
+
+nav{
+    display:none;
+    flex-direction:column;
+    width:100%;
+    margin-top:15px;
+}
+
+nav.open{
+    display:flex;
+}
+
+nav a{
+    margin:8px 0;
+    padding:12px;
+    background:#1a1a1a;
+    border-radius:10px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:36px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<img src="19311-removebg-preview.png" width="50" height="50" alt="Logo NoirCat">
+<h2>NoirCat</h2>
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">
+☰
+</div>
+
+<nav id="menu">
+<a href="index.html">Home</a>
+<a href="download.html">Download</a>
+<a href="privacy.html">Privacy</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Tutta la privacy di cui hai bisogno in un browser.</h1>
+
+<p>
+NoirCat è un browser moderno progettato per proteggere la tua privacy.
+Naviga più velocemente, blocca il tracciamento e mantieni il controllo dei tuoi dati.
 </p>
 
-<div class="separator"></div>
+<a class="button" href="download.html">
+⬇ Scarica NoirCat
+</a>
 
-<h1>Tutta la privacy che hai bisogno in un browser</h1>
-<p>NoirCat è un browser leggero, veloce e che non rinuncia mai alla privacy.</p>
+</section>
+
+<section class="section">
+
+<h1>Funzionalità principali</h1>
+
+<div class="cards">
+
+<div class="card">
+<h3>🛡 Tracker Blocker</h3>
+<p>
+NoirCat blocca automaticamente tracker pubblicitari e sistemi di profilazione,
+impedendo ai siti web di seguirti durante la navigazione.
+</p>
+</div>
+
+<div class="card">
+<h3>🔎 Ricerca privata</h3>
+<p>
+DuckDuckGo è il motore di ricerca predefinito.
+Puoi cercare sul Web senza essere profilato.
+</p>
+</div>
+
+<div class="card">
+<h3>🍪 Cookie eliminati automaticamente</h3>
+<p>
+Alla chiusura del browser tutti i cookie vengono eliminati.
+Questo comporta anche la disconnessione automatica dagli account,
+proteggendo dati sensibili come quelli bancari.
+</p>
+</div>
+
+<div class="card">
+<h3>🔒 Privacy attiva di default</h3>
+<p>
+Non serve modificare impostazioni.
+Le protezioni sono già abilitate dal primo avvio.
+</p>
+</div>
+
+<div class="card">
+<h3>⚡ Leggero</h3>
+<p>
+NoirCat è pensato per essere veloce e utilizzare poche risorse,
+anche su computer meno recenti.
+</p>
+</div>
+
+<div class="card">
+<h3>🌍 Open Source</h3>
+<p>
+Il codice sorgente di NoirCat è aperto.
+Chiunque può ispezionarlo e contribuire al progetto.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h1>Perché scegliere NoirCat?</h1>
+
+<p>
+Molti browser raccolgono dati per migliorare servizi o pubblicità.
+NoirCat nasce con una filosofia diversa:
+<b>i tuoi dati appartengono solo a te.</b>
+</p>
 
 <ul>
-  <li>
-    <b>Tracker blocker</b>
-    <p>NoirCat rimuove i tracker dai siti web visiti.</p>
-  </li>
-  <li>
-    <b>Motore di ricerca sicuro</b>
-    <p>DuckDuckGo di defalut, un motore di ricerca sicuro e che non raccoglie dati su di te.</p>
-  </li>
-  <li>
-    <b>Cancellazione dei cookie alla chiusura</b>
-    <p>NoirCat elimina i cookie quando lo chiudi. Se chiudi NoirCat e qualcuno vuole fare cose malevole — magari sulla tua banca — dovrá prima riaccedere.</p>
-  </li>
+<li>Nessuna telemetria obbligatoria.</li>
+<li>Nessuna vendita dei dati.</li>
+<li>Nessun tracciamento pubblicitario.</li>
+<li>Cookie eliminati automaticamente alla chiusura.</li>
+<li>Protezione della privacy già attiva.</li>
+<li>Esperienza semplice e veloce.</li>
 </ul>
 
-<h1>Perché scegliere NoirCat</h1>
+</section>
 
-<p>Ti stai chiedendo perché passare. Ecco i migliori motivi</p>
+<section class="section">
 
-<ul>
-  <li>
-    <b>Nessun dato condiviso</b>
-    <p>NoirCat non condivide alcun dato.</p>
-  </li>
-  <li>
-    <b>Privacy, di defalut</b>
-    <p>La Privacy su NoirCat è presa sul serio, infatti è attivata di defalut.</p>
-  </li>
-</ul>
+<h1>Il browser che rispetta la tua privacy.</h1>
+
+<p>
+La tua cronologia, i tuoi cookie e le tue informazioni personali non dovrebbero
+essere una fonte di guadagno.
+</p>
+
+<p>
+NoirCat è stato creato con un solo obiettivo:
+<b>offrirti un browser semplice, veloce e realmente orientato alla privacy.</b>
+</p>
+
+<a class="button" href="download.html">
+Inizia ora →
+</a>
+
+</section>
+
+<footer>
+
+<img src="19311-removebg-preview.png" width="40" alt="Logo NoirCat">
+
+<p>
+<b>NoirCat Browser</b><br>
+Privacy senza compromessi.
+</p>
+
+<p>
+© 2026 NoirCat Project.
+</p>
+
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
