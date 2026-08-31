@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sfondi Miei</title>
+
+    <meta name="description" content="La raccolta dei miei sfondi per Home e Lockscreen.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --verde: #22c55e;
+            --verde-scuro: #16a34a;
+            --sfondo: #f0fdf4;
+            --card: #ffffff;
+            --testo: #172018;
+            --secondario: #64746a;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--sfondo);
+            color: var(--testo);
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            color: white;
+            padding: 55px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            opacity: 0.95;
+        }
+
+        main {
+            width: min(1100px, 92%);
+            margin: 45px auto;
+        }
+
+        .sfondi {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .preview {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            display: block;
+            background: #e5e7eb;
+        }
+
+        .contenuto {
+            padding: 25px;
+        }
+
+        .contenuto h2 {
+            font-size: 1.45rem;
+            margin-bottom: 8px;
+        }
+
+        .contenuto p {
+            color: var(--secondario);
+            margin-bottom: 20px;
+        }
+
+        .bottoni {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 130px;
+            padding: 13px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .visualizza {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .visualizza:hover {
+            background: #bbf7d0;
+        }
+
+        .scarica {
+            background: var(--verde);
+            color: white;
+        }
+
+        .scarica:hover {
+            background: var(--verde-scuro);
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            color: var(--secondario);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 700px) {
+            .sfondi {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                margin: 30px auto;
+            }
+
+            .contenuto {
+                padding: 20px;
+            }
+
+            .card {
+                border-radius: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .bottoni {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌿 Sfondi Miei</h1>
+    <p>I miei sfondi preferiti, pronti da visualizzare e scaricare.</p>
+</header>
+
+<main>
+
+    <section class="sfondi">
+
+        <!-- SFONDO HOME -->
+        <article class="card">
+            <img
+                class="preview"
+                src="20260125_154144.jpg"
+                alt="Sfondo Home"
+            >
+
+            <div class="contenuto">
+                <h2>🏠 Sfondo Home</h2>
+                <p>Lo sfondo utilizzato nella schermata Home.</p>
+
+                <div class="bottoni">
+                    <a
+                        class="btn visualizza"
+                        href="20260125_154144.jpg"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        👁️ Visualizza
+                    </a>
+
+                    <a
+                        class="btn scarica"
+                        href="20260125_154144.jpg"
+                        download="20260125_154144.jpg"
+                    >
+                        ⬇️ Scarica
+                    </a>
+                </div>
+            </div>
+        </article>
+
+
+        <!-- SFONDO LOCKSCREEN -->
+        <article class="card">
+            <img
+                class="preview"
+                src="20260125_153434.jpg"
+                alt="Sfondo Lockscreen"
+            >
+
+            <div class="contenuto">
+                <h2>🔒 Sfondo Lockscreen</h2>
+                <p>Lo sfondo utilizzato nella schermata di blocco.</p>
+
+                <div class="bottoni">
+                    <a
+                        class="btn visualizza"
+                        href="20260125_153434.jpg"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        👁️ Visualizza
+                    </a>
+
+                    <a
+                        class="btn scarica"
+                        href="20260125_153434.jpg"
+                        download="20260125_153434.jpg"
+                    >
+                        ⬇️ Scarica
+                    </a>
+                </div>
+            </div>
+        </article>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Sfondi Miei
+</footer>
+
+</body>
+</html>
